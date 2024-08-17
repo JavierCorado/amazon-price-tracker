@@ -1,4 +1,6 @@
+pip-tools
 selenium
 webdriver-manager
 pydantic
 pytest
+pytest-cov
