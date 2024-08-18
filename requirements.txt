@@ -6,6 +6,8 @@
 #
 annotated-types==0.7.0
     # via pydantic
+astroid==3.2.4
+    # via pylint
 attrs==24.2.0
     # via
     #   outcome
@@ -22,6 +24,8 @@ click==8.1.7
     # via pip-tools
 coverage[toml]==7.6.1
     # via pytest-cov
+dill==0.3.8
+    # via pylint
 exceptiongroup==1.2.2
     # via
     #   pytest
@@ -37,6 +41,12 @@ importlib-metadata==8.2.0
     # via build
 iniconfig==2.0.0
     # via pytest
+isort==5.13.2
+    # via
+    #   -r requirements.in
+    #   pylint
+mccabe==0.7.0
+    # via pylint
 outcome==1.3.0.post0
     # via trio
 packaging==24.1
@@ -46,12 +56,16 @@ packaging==24.1
     #   webdriver-manager
 pip-tools==7.4.1
     # via -r requirements.in
+platformdirs==4.2.2
+    # via pylint
 pluggy==1.5.0
     # via pytest
 pydantic==2.8.2
     # via -r requirements.in
 pydantic-core==2.20.1
     # via pydantic
+pylint==3.2.6
+    # via -r requirements.in
 pyproject-hooks==1.1.0
     # via
     #   build
@@ -68,6 +82,8 @@ python-dotenv==1.0.1
     # via webdriver-manager
 requests==2.32.3
     # via webdriver-manager
+ruff==0.6.1
+    # via -r requirements.in
 selenium==4.23.1
     # via -r requirements.in
 sniffio==1.3.1
@@ -79,7 +95,10 @@ tomli==2.0.1
     #   build
     #   coverage
     #   pip-tools
+    #   pylint
     #   pytest
+tomlkit==0.13.2
+    # via pylint
 trio==0.26.2
     # via
     #   selenium
@@ -89,8 +108,10 @@ trio-websocket==0.11.1
 typing-extensions==4.12.2
     # via
     #   annotated-types
+    #   astroid
     #   pydantic
     #   pydantic-core
+    #   pylint
     #   selenium
 urllib3[socks]==2.2.2
     # via

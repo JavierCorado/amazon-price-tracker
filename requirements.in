@@ -4,3 +4,6 @@ webdriver-manager
 pydantic
 pytest
 pytest-cov
+ruff
+pylint
+isort
