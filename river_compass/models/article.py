@@ -1,6 +1,7 @@
 """Python module for the article pydantic model"""
 
 from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
