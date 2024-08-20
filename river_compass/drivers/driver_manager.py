@@ -11,8 +11,6 @@ Methods:
     firefox_driver: Creates and returns a headless Firefox WebDriver instance.
 """
 
-from typing import Callable, Dict
-
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
@@ -41,9 +39,7 @@ class SeleniumDriverManager:
             should be created (e.g., "firefox").
         """
         self.driver_option = driver_option.lower()
-        self.driver_dict: Dict[str, Callable[[], WebDriver]] = {
-            "firefox": self.firefox_driver
-        }
+        self.driver_dict = {"firefox": self.firefox_driver}
 
     def get_driver(self) -> WebDriver:
         """
