@@ -11,8 +11,6 @@ Methods:
     firefox_driver: Creates and returns a headless Firefox WebDriver instance.
 """
 
-from typing import Callable, Dict
-
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
