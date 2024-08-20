@@ -41,9 +41,7 @@ class SeleniumDriverManager:
             should be created (e.g., "firefox").
         """
         self.driver_option = driver_option.lower()
-        self.driver_dict: Dict[str, Callable[[], WebDriver]] = {
-            "firefox": self.firefox_driver
-        }
+        self.driver_dict = {"firefox": self.firefox_driver}
 
     def get_driver(self) -> WebDriver:
         """
