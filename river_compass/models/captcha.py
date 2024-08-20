@@ -15,8 +15,9 @@ Methods:
 """
 
 from typing import Optional
-from selenium.webdriver.remote.webdriver import WebDriver
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from river_compass.utils import amazon_captcha_text
 
