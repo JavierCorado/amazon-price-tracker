@@ -15,11 +15,13 @@ def amazon_captcha_text(link: Union[str, None]) -> Optional[str]:
     Solves and returns the text from an Amazon CAPTCHA image.
 
     Args:
-        link (Union[str, None]): The URL of the CAPTCHA image. If None, the function will return None.
+        link (Union[str, None]): The URL of the CAPTCHA image.
+                                 If None, the function will return None.
 
     Returns:
-        Optional[str]: The solved CAPTCHA text if a link is provided and the CAPTCHA is solved successfully.
-                       Returns None if the link is None or if solving the CAPTCHA fails.
+        Optional[str]: The solved CAPTCHA text if a link is provided and the CAPTCHA
+                       is solved successfully. Returns None if the link is None or
+                       if solving the CAPTCHA fails.
     """
     if link is None:
         return None
