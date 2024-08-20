@@ -6,8 +6,6 @@
 #
 amazoncaptcha==0.5.11
     # via -r requirements.in
-annotated-types==0.7.0
-    # via pydantic
 astroid==3.2.4
     # via pylint
 attrs==24.2.0
@@ -75,10 +73,6 @@ platformdirs==4.2.2
     #   pylint
 pluggy==1.5.0
     # via pytest
-pydantic==2.8.2
-    # via -r requirements.in
-pydantic-core==2.20.1
-    # via pydantic
 pylint==3.2.6
     # via -r requirements.in
 pyproject-hooks==1.1.0
@@ -125,11 +119,8 @@ trio-websocket==0.11.1
     # via selenium
 typing-extensions==4.12.2
     # via
-    #   annotated-types
     #   astroid
     #   black
-    #   pydantic
-    #   pydantic-core
     #   pylint
     #   selenium
 urllib3[socks]==2.2.2

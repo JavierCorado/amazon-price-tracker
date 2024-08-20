@@ -2,7 +2,6 @@ amazoncaptcha==0.5.11
 pip-tools
 selenium
 webdriver-manager
-pydantic
 pytest
 pytest-cov
 ruff
