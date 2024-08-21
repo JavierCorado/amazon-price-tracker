@@ -70,7 +70,7 @@ class SeleniumDriverManager:
         """
         service = Service(GeckoDriverManager().install())
         options = Options()
-        options.add_argument("--width=2560")
-        options.add_argument("--height=1440")
+        # options.add_argument("--width=2560")
+        # options.add_argument("--height=1440")
         driver = webdriver.Firefox(service=service, options=options)
         return driver
