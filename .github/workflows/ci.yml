@@ -3,14 +3,16 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  lint:
+  install_dependencies:
     runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.cache-key }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,9 +20,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.8' # Adjust Python version as needed
+          python-version: '3.8' # The Python version used for caching
 
       - name: Cache Python dependencies
+        id: cache-key
         uses: actions/cache@v3
         with:
           path: |
@@ -35,13 +38,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run pylint
-        run: |
-          pylint $(git ls-files '*.py')
-
-  test:
+  lint:
     runs-on: ubuntu-latest
-    needs: lint
+    needs: install_dependencies
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -49,17 +51,28 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.8' # Adjust Python version as needed
+          python-version: ${{ matrix.python-version }}
 
-      - name: Cache Python dependencies
-        uses: actions/cache@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pylint
+        run: |
+          pylint $(git ls-files '*.py')
+
+  test:
+    runs-on: ubuntu-latest
+    needs: install_dependencies
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
         with:
-          path: |
-            ~/.cache/pip
-            .venv
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          python-version: [3.8, 3.9, 3.10] # Choose one version for testing or use a matrix strategy if needed
 
       - name: Install dependencies
         run: |
