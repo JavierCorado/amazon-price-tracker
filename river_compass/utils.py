@@ -29,6 +29,6 @@ def amazon_captcha_text(link: Union[str, None]) -> Optional[str]:
         captcha = AmazonCaptcha.fromlink(link)
         solution = captcha.solve()
     except (MissingSchema, ContentTypeError) as error:
-        print(error)
-        # logger message
+        # issue #31: add logger message
+        print(f"Error: {error}")
     return solution
